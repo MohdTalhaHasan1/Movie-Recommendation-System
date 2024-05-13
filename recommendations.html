@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Recommendations</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 8px;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Movie Recommendations</h1>
+    <h2>Top 10 Recommendations</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Genres</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for rec in recommendations[:10] %}
+        <tr>
+          <td>{{ rec.title }}</td>
+          <td>{{ rec.genres }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <h2>Search Results</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Genres</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for movie in search_results.iterrows() %}
+        <tr>
+          <td>{{ movie[1]['title'] }}</td>
+          <td>{{ movie[1]['genres'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
